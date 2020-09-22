@@ -20,7 +20,7 @@
 <div class="pagination">
     <span class="page-links">
     {% if page_obj.has_previous %}
-{#        这个href的路径必须是，这次的首页的路径后面再加/?page……#}
+        这个href的路径必须是，这次的首页的路径后面再加/?page……
         <a href="/ap1/a3/?page={{ page_obj.previous_page_number }}">上一页</a>
     {% endif %}
     {% if page_obj.has_next %}
@@ -34,5 +34,13 @@
     </span>
 </div>
 {% endif %}
+{#detailView 用起来好麻烦啊#}
+<br>
+    <table border="1">
+        <tr>
+            <th>{{ ap1DetailView_i.name }}</th>
+            <th>{{ ap1DetailView_i.age }}</th>
+        </tr>
+    </table>
 </body>
 </html>

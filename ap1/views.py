@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.base import RedirectView, TemplateView
 from pure_pagination import PaginationMixin
 
@@ -75,4 +75,20 @@ class ap1ListView(ListView):
     # 对queryset查询的数值返回值，默认为:ap1PerSon_list
     context_object_name = 'ap1PerSon_i'
 
-class
+
+class ap1DetailView(DetailView):
+    # 设置模板文件，页面渲染
+    template_name = 'ap1View/indexList.html'
+    # 设置模型外的数据
+    extra_context_param = {'title2': '人员信息表2'}
+    # 设置查询字段
+    slug_field = 'age'
+    # 设置路由变量，和field联合
+    slug_url_kwarg = 'age'
+    pk_url_kwarg = 'pk'
+    # 设置查询模型
+    model = ap1Person
+    # 设置查询模型,操作
+    queryset = ap1Person.objects.all()
+    # 对queryset查询的数值返回值，默认为:ap1PerSon_list
+    context_object_name = 'ap1DetailView_i'

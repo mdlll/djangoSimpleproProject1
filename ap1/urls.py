@@ -20,4 +20,6 @@ urlpatterns = [
     path('ap1/a2/', views.ap1TemplateView.as_view(), name='ap1TemplateView'),
     # listViews视图
     path('ap1/a3/', ap1.views.ap1ListView.as_view(), name='ap1ListView'),
+    # detailView
+    path('ap1/a4/<pk>/<age>', ap1.views.ap1DetailView.as_view(), name='ap1Detail'),
 ]
