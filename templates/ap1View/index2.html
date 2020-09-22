@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h5>{{ title }}</h5>
+<div>{{ value }}</div>
+<h5>kong</h5>
+<form action="" method="post">
+    {% csrf_token %}
+{#    在django中我们需要在templates的form中加入{%csrf_token%}这串内容，它的作用是当我们get表单页面时，#}
+{#    服务器返回页面的同时也会向前端返回一串随机字符，post提交时服务器会验证这串字符来确保用户是在服务端返回的表单页面中提交的数据，#}
+{#    防止有人通过例如jquery脚本向某个url不断提交数据，是一种数据提交的验证机制。#}
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

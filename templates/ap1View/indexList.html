@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title3</title>
+</head>
+<body>
+<h6>{{ title }}</h6>
+<table border="1">
+    {% for i in ap1PerSon_i %}
+    <tr>
+    <th>{{ i.name }}</th>
+    <th>{{ i.age }}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+{% if is_paginated %}
+<div class="pagination">
+    <span class="page-links">
+    {% if page_obj.has_previous %}
+{#        这个href的路径必须是，这次的首页的路径后面再加/?page……#}
+        <a href="/ap1/a3/?page={{ page_obj.previous_page_number }}">上一页</a>
+    {% endif %}
+    {% if page_obj.has_next %}
+        <a href="/ap1/a3/?page={{ page_obj.next_page_number }}">下一页</a>
+    {% endif %}
+        <br>
+        <span class="page-current">
+            第{{ page_obj.number }}页，
+            共{{ page_obj.paginator.num_pages }}页。
+        </span>
+    </span>
+</div>
+{% endif %}
+</body>
+</html>
