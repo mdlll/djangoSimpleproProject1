@@ -22,4 +22,13 @@ urlpatterns = [
     path('ap1/a3/', ap1.views.ap1ListView.as_view(), name='ap1ListView'),
     # detailView
     path('ap1/a4/<pk>/<age>', ap1.views.ap1DetailView.as_view(), name='ap1Detail'),
+    # formView
+    path('ap1/a5/', ap1.views.ap1FormView.as_view(), name='ap1Form'),
+    path('ap1/a5/result', views.result, name='result'),
+    # createView
+    path('ap1/a6/', ap1.views.ap1CreateView.as_view(), name='ap1Create'),
+    path('ap1/a6/result', views.result, name='result'),
+    # updateView
+    path('<age>.html', ap1.views.ap1UpdateView.as_view(), name='ap1Update'),#查询age必须唯一
+    path('result', views.result, name='result'),
 ]
