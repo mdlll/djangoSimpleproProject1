@@ -92,3 +92,5 @@ class ap1DetailView(DetailView):
     queryset = ap1Person.objects.all()
     # 对queryset查询的数值返回值，默认为:ap1PerSon_list
     context_object_name = 'ap1DetailView_i'
+
+
