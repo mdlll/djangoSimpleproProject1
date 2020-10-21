@@ -5,7 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<h5>{{ vaa.title1 }}</h5>
-<h6>{{ vbb.title2 }}</h6>
+{#<h5>{{ vaa.title1 }}</h5>#}
+{#<h6>{{ vbb.title2 }}</h6>#}
+    <h6>{{ title }}-{{ ap1UpdateView_i.name }}</h6>
+    由extraContext确定
+<form method="post">
+
+{#    提交表单#}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="确定">
+
+</form>
+
+    <p>
+        {#    {{ form.as_p }}这是一个模板变量#}
+        Django 自动创建显示表单所需要的全部字段
+        修饰符as_p让Django以字段格式渲染所有的表单元素，这是一种整洁的显示表单的简单方式
+    </p>
 </body>
 </html>

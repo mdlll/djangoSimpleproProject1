@@ -3,10 +3,12 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView
+import django.views.generic
 from django.views.generic.base import RedirectView, TemplateView
 from pure_pagination import PaginationMixin
 
+from ap1.form import ap1PersonForm
 from ap1.models import ap1Person
 
 
@@ -94,3 +96,35 @@ class ap1DetailView(DetailView):
     context_object_name = 'ap1DetailView_i'
 
 
+def result(request):
+    return HttpResponse('Success')
+
+
+class ap1FormView(FormView):
+    initial = {'name': 'Betty', 'age': 20, }
+    template_name = 'ap1View/index1.html'
+    success_url = 'result'  # 路由重定向
+    form_class = ap1PersonForm  # 表单生成方式一
+    extra_context = {'title': '人员信息表'}
+
+
+class ap1CreateView(CreateView):
+    initial = {'id': 6, 'name': 'Betty', 'age': 20, }
+    # id 无法显示，为啥呢
+    template_name = 'ap1View/index1.html'
+    success_url = 'result'  # 路由重定向
+    model = ap1Person # 表单生成方式2
+    fields = ['id', 'name', 'age', ]
+    extra_context = {'title': '人员信息表'}
+
+class ap1UpdateView(UpdateView):
+    initial = {'name': 'Betty', 'age': 20, }
+    # id 无法显示，为啥呢
+    template_name = 'ap1View/index1.html'
+    success_url = '/result'  # 路由重定向
+    model = ap1Person
+    fields = ['name', 'age', ]
+    slug_url_kwarg = 'age'
+    slug_field = 'age'
+    context_object_name = 'ap1UpdateView_i'
+    extra_context = {'title': '人员信息表update'}
