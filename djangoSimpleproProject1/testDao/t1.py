@@ -27,12 +27,6 @@ class StringTest(object):
         print(rest)
         return rest
 
-    '''
-    软件测试包括：单元，集成，确认，系统，验收
-    CMM=软件能力成熟度模型，CMMI=软件能力成熟度集成模型（CMM升级版）
-    UML=统一建模语言
-    '''
-
     def test_mget(self):
         ''' mset -- 设置多个键值对 '''
         d = ['name3', 'name4']
@@ -50,6 +44,16 @@ class StringTest(object):
         rest=self.r.renamenx('name4','name5')
         print(rest)
         return rest
+
+    '''
+    软件测试包括：单元，集成，确认，系统，验收
+    CMM=软件能力成熟度模型，CMMI=软件能力成熟度集成模型（CMM升级版）
+    UML=统一建模语言，https://www.cnblogs.com/jiangds/p/6596595.html
+    软件架构：2C/S，3C/S和B/S（B是浏览器browser）
+    SOA（Service-Oriented Architecture，面向服务的体系结构）是一个组件模型
+    软件构建是三个流派：CORBA，EJB和DCOM
+    中间件是指：远程过程调用，面向消息的中间件，对象请求代理，事务处理监控
+    '''
 
     def test_push(self):
         ''' lpush/rpush -- 从左/右插入数据 '''
