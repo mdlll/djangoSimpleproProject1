@@ -39,6 +39,17 @@ class StringTest(object):
         rest = self.r.delete('name3')
         print(rest)
 
+    '''
+    CRM=客户关系中心
+    和G有关的是政府government
+    供应链是信息流，物流，商流和资金流的链
+    EAI是企业内部的集成平台，包括平台，界面，数据库，流程和应用的集成
+    软件开发模型：瀑布模型，演化模型（这是一个需求模糊模型），增量模型，螺旋模型，喷泉模型（这就是一个连需求都没有的模型），构件组装模型（这是一个拿来主义模型），
+    V模型（瀑布模型增加迭代测试模型），RUP（Rational Unified Process，统一软件开发过程）中的软件生命周期在时间上被分解为四个顺序的阶段，分别是：初始阶段、细化阶段、构造阶段 和交付阶段 。
+    内聚性弱到强：偶逻时过通顺功
+    耦合性弱到强：非数标控外公内
+    '''
+
     def test_renamenx(self):
         ''' renamenx修改key值 '''
         rest=self.r.renamenx('name4','name5')
